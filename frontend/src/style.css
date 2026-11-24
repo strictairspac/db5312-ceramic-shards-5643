@@ -70,6 +70,12 @@ td { border-top:1px solid var(--line); min-width: 3.3rem; max-width: 35ch; }
 .status { display:inline-block; border:1px solid var(--line); padding:.05em .55em; border-radius:var(--radius); white-space:nowrap; font-size:.88em; }
 .status[data-state='complete'] { color: oklch(.35 .09 150); border-color: oklch(.78 .11 151); }
 .status[data-state='failed'],.error { color: oklch(.36 .15 27); background: oklch(.94 .045 26); }
+.status[data-state='void'],.status[data-state='pending_recovery'],.status[data-state='unavailable'] { color: oklch(.36 .15 27); border-color: oklch(.7 .14 27); }
+.status[data-state='available'],.status[data-state='recovered'] { color: oklch(.35 .09 150); border-color: oklch(.78 .11 151); }
+.linkish { border: 0; background: transparent; color: var(--accent-dark); font: inherit; font-weight: 600; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+.linkish:hover { transform: none; }
+.recover-form { display: flex; flex-wrap: wrap; gap: .6rem; align-items: end; margin: .6rem 0; }
+.recover-form label { flex: 1 1 18rem; }
 .error { padding:.7rem .9rem; margin-bottom:1rem; border-inline-start:3px solid currentColor; }
 .empty { margin:0; padding:1.3rem; color:var(--muted); background:var(--soft); }
 summary { cursor:pointer; font-weight:600; color:var(--accent-dark); }

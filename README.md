@@ -8,6 +8,7 @@
 - 预检批次
 - 重分片预算
 - 搬迁清单
+- 交接登记
 
 ## 本地运行
 
@@ -20,6 +21,7 @@ docker compose up -d --build --wait
 - FastAPI 文档 `http://127.0.0.1:19301/docs`
 - MySQL 8.0 端口 `127.0.0.1:17801`，账号 `app`，演示库 `workflow`
 - `docker compose exec -T backend python -m scripts.seed_demo` 手动重跑演示数据
+- 启动时自动为旧演示卷补齐更正与交接所需的列和表（见 `backend/migrations/README.md`）
 - `docker compose logs -f backend worker` 查看运行情况
 - `docker compose down` 停容器并保留演示卷
 
@@ -29,7 +31,7 @@ docker compose up -d --build --wait
 
 | 账号 | 角色 | 能执行的操作 |
 |---|---|---|
-| `operator` | 经办员 | 读取档案、创建实验输入、提交执行、导出结果 |
+| `operator` | 经办员 | 读取档案、创建实验输入、提交执行、登记盘点更正、办理交接与追回、导出结果 |
 | `reviewer` | 复核员 | 读取、导出和签署结果 |
 | `viewer` | 观察员 | 读取、导出已有结果 |
 

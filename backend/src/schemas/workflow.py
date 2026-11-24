@@ -15,3 +15,19 @@ class CaseForm(BaseModel):
 
 class ReviewForm(BaseModel):
     note: str = Field(min_length=1, max_length=500)
+
+
+class CorrectionForm(BaseModel):
+    request_key: str = Field(min_length=1, max_length=80)
+    batch_id: str = Field(min_length=1, max_length=64)
+    new_size_bytes: int = Field(ge=1)
+    old_size_bytes: int | None = Field(default=None, ge=0)
+    reason: str = Field(min_length=1, max_length=500)
+
+
+class HandoverForm(BaseModel):
+    note: str | None = Field(default=None, max_length=500)
+
+
+class RecoveryForm(BaseModel):
+    note: str | None = Field(default=None, max_length=500)

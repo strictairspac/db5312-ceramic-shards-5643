@@ -25,7 +25,7 @@ def work():
             if not job:
                 cache.brpop('worker:wake', timeout=1)
                 continue
-            run_id, token, payload = job
+            run_id, token, payload, revision = job
             stop = Event()
             thread = Thread(target=heartbeat, args=(stop,), daemon=True)
             thread.start()
